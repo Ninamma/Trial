@@ -1,41 +1,18 @@
-from flask import Flask, render_template, request
-from APIs import Adapter
-app = Flask("MyApp")
+from flask import Flask
+from datetime import datetime
+app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return render_template("index.html")
+@app.route('/')
+def homepage():
+    the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
 
-#@app.route("/about") #maybe we could make an about the site/about us page?
-#def about():
-#    return render_template("about.html")
+    return """
+    <h1>Hello heroku</h1>
+    <p>It is currently {time}.</p>
 
-#@app.route("/newsletter") #page for making a signup page for relevant newsletters with mailgun?
-#def news():
-#    return render_template("newsletter.html")
+    <img src="http://loremflickr.com/600/400" />
+    """.format(time=the_time)
 
-@app.route("/northamerica")
-def northamerica():
-    return render_template("northamerica.html", entries = Adapter.final_adapter('assets AND "north america"'))
+if __name__ == '__main__':
+    app.run(debug=True, use_reloader=True)
 
-@app.route("/southamerica")
-def southamerica():
-    return render_template("southamerica.html", entries = Adapter.final_adapter('assets AND "south america"'))
-
-@app.route("/europe")
-def europe():
-    return render_template("europe.html", entries = Adapter.final_adapter('assets AND europe'))
-
-@app.route("/africa")
-def africa():
-    return render_template("africa.html", entries = Adapter.final_adapter('assets AND africa'))
-
-@app.route("/asia")
-def asia():
-    return render_template("asia.html", entries = Adapter.final_adapter('assets AND asia'))
-
-@app.route("/australia")
-def australia():
-    return render_template("australia.html", entries = Adapter.final_adapter('assets AND australia'))
-
-app.run(debug = True)
