@@ -4,7 +4,8 @@ app = Flask("MyApp")
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return '<h1>will this finaly work??</h1>'
+    #return render_template("index.html")
 
 #@app.route("/about") #maybe we could make an about the site/about us page?
 #def about():
