@@ -1,6 +1,5 @@
 from datetime import date, timedelta
 import requests
-#from nytimesarticle import articleAPI
 import pprint
 
 def get_article(query):
