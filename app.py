@@ -4,8 +4,15 @@ app = Flask("MyApp")
 
 @app.route("/")
 def home():
-    #return render_template("northamerica.html", entries = Adapter.final_adapter('assets AND "north america"'))
     return render_template("index.html")
+
+@app.route("/about") #maybe we could make an about the site/about us page?
+def about():
+    return render_template("about.html")
+
+@app.route("/newsletter") #page for making a signup page for relevant newsletters with mailgun?
+def news():
+    return render_template("newsletter.html")
 
 @app.route("/northamerica")
 def northamerica():
