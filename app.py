@@ -5,4 +5,5 @@ app = Flask("MyApp")
 def home():
     return '<h1>will this finaly work??</h1>'
 
-app.run(debug = True)
+if __name__ == '__main__':
+    app.run(debug = True)
