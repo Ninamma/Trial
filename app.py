@@ -31,5 +31,5 @@ def australia():
     return render_template("australia.html", entries = Adapter.final_adapter('assets AND australia'))
 
 
-#if __name__ == '__main__':
-app.run(debug = True)
+if __name__ == '__main__':
+    app.run(debug = True)
