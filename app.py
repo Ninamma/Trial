@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template#, request
+#from APIs import Adapter
 app = Flask("MyApp")
 
 @app.route("/")
 def home():
-    return '<h1>will this finaly work??</h1>'
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug = True)
