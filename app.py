@@ -4,8 +4,8 @@ app = Flask("MyApp")
 
 @app.route("/")
 def home():
-    return render_template("northamerica.html", entries = Adapter.final_adapter('assets AND "north america"'))
-    #return render_template("index.html")
+    #return render_template("northamerica.html", entries = Adapter.final_adapter('assets AND "north america"'))
+    return render_template("index.html")
 
 #@app.route("/northamerica")
 #def northamerica():
